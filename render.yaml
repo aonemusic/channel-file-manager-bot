@@ -1,0 +1,36 @@
+services:
+  - type: web
+    name: channel-file-manager-bot
+    runtime: python
+    plan: starter
+    numInstances: 1
+    buildCommand: pip install -r requirements.txt
+    startCommand: python bot.py
+    healthCheckPath: /healthz
+    disk:
+      name: channel-file-manager-data
+      mountPath: /var/data
+      sizeGB: 1
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.9
+      - key: BOT_TOKEN
+        sync: false
+      - key: OWNER_ID
+        sync: false
+      - key: TELETHON_API_ID
+        sync: false
+      - key: TELETHON_API_HASH
+        sync: false
+      - key: TELETHON_SESSION
+        sync: false
+      - key: DATABASE_PATH
+        value: /var/data/channelbot.sqlite3
+      - key: BOT_LOCK_PATH
+        value: /var/data/channelbot.lock
+      - key: BATCH_SIZE
+        value: "20"
+      - key: PROGRESS_EVERY
+        value: "20"
+      - key: LOG_LEVEL
+        value: INFO
