@@ -59,6 +59,7 @@ Helper нь Telegram-д нэвтрэх код/шаардлагатай нууц 
 1. Төслийг **private GitHub repository** болгон push хийнэ. `.env`, session файл, session string болон жинхэнэ credential-уудыг commit хийхгүй.
 2. Render dashboard-аас **New → Blueprint** сонгоод энэ repository-г холбоно. Root directory нь repository-ийн төслийн root байна.
 3. `render.yaml`-ийн `channel-file-manager-bot` Web Service тохиргоог шалгаад Blueprint-ийг apply хийнэ. Blueprint нь `python bot.py` ажиллуулж, `/healthz`-г health check болгон ашиглана.
+   Render-ийн албан ёсны үнийн хуудсанд энэ тохиргооны `0.5c-512mb` service $7/сар, 1 GB persistent disk $0.25/сар гэж байна. Иймээс урьдчилсан суурь өртөг ойролцоогоор $7.25/сар бөгөөд татвар болон нэмэлт хэрэглээ үүнд ороогүй. Render-ийн checkout/payment verification тусад нь шаардаж болно.
 4. Render Environment хэсэгт доорх нууц утгуудыг оруулна. YAML дээр `sync: false` гэж тэмдэглэсэн талбаруудад Render утга асууна:
    - `BOT_TOKEN`: BotFather-аас авсан bot token.
    - `OWNER_ID`: зөвшөөрөгдсөн эзний numeric Telegram ID; `session_gen.py`-ийн ID-тэй яг ижил байх ёстой.

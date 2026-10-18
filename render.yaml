@@ -2,7 +2,7 @@ services:
   - type: web
     name: channel-file-manager-bot
     runtime: python
-    plan: starter
+    plan: 0.5c-512mb
     numInstances: 1
     buildCommand: pip install -r requirements.txt
     startCommand: python bot.py
